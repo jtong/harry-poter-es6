@@ -2,7 +2,7 @@ export default class Basket {
     constructor(basketItems){
         this.basketItems = basketItems;
     }
-    discount(){
+    getPriceAfterDiscount(){
         if(!this.basketItems || this.basketItems.length == 0){
             return 0;
         }
