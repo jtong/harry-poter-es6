@@ -33,10 +33,17 @@ describe("Harry Potter", ()=>{
 
     });
 
-    it("should be 5% discount price for 2 different books", () => {
+    it("should be 5% discount price for just 2 different books", () => {
         var books = [new HarryPotter("1st", 1), new HarryPotter("2nd",1)];
         var price = new Basket(books).getPriceAfterDiscount();
         expect(price).to.equal(2*(8*(1-0.05)));
     });
+
+    it("should be 5% discount price for 2 different books and more same books", () => {
+        var books = [new HarryPotter("1st", 3), new HarryPotter("2nd",1)];
+        var price = new Basket(books).getPriceAfterDiscount();
+        expect(price).to.equal(2*(8*(1-0.05))+2*8);
+    });
+
 
 });
