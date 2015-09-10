@@ -12,10 +12,10 @@ import HarryPotter from "../src/harry-potter";
 describe("Harry Potter", ()=>{
     it("should be no price for no book", ()=>{
         var price = new Basket().getPriceAfterDiscount();
-        expect(price).to.equal(0)
+        expect(price).to.equal(0);
 
         var price = new Basket([]).getPriceAfterDiscount();
-        expect(price).to.equal(0)
+        expect(price).to.equal(0);
 
     });
 
@@ -31,6 +31,12 @@ describe("Harry Potter", ()=>{
         var price = new Basket([new HarryPotter("5th", 1)]).getPriceAfterDiscount();
         expect(price).to.equal(8);
 
-    })
+    });
+
+    it("should be 5% discount price for 2 different books", () => {
+        var books = [new HarryPotter("1st", 1), new HarryPotter("2nd",1)];
+        var price = new Basket(books).getPriceAfterDiscount();
+        expect(price).to.equal(2*(8*(1-0.05)));
+    });
 
 });

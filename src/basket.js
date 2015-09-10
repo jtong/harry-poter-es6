@@ -9,5 +9,8 @@ export default class Basket {
         if(this.basketItems.length == 1){
             return this.basketItems[0].price;
         }
+        if(this.basketItems.length == 2){
+            return this.basketItems[0].price * 2 * (1-0.05);
+        }
     }
 }
