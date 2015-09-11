@@ -1,30 +1,61 @@
+To try and encourage more sales of the 5 different Harry
+Potter books they sell, a bookshop has decided to offer
+discounts of multiple-book purchases.
 
+One copy of any of the five books costs 8 EUR.
 
-## 适用人群
+If, however, you buy two different books, you get a 5%
+discount on those two books.
 
-1. 没有js面向对象经验的人快速验证自己是否已经具备了用js进行基本的面向对象编程的能力
-2. 没有面向对象经验的人通过完成测试来验证自己已经具备了用js进行基本的面向对象编程的能力。
+If you buy 3 different books, you get a 10% discount.
 
+If you buy 4 different books, you get a 20% discount.
 
-## 使用方法
+If you go the whole hog, and buy all 5, you get a huge 25%
+discount.
 
+Note that if you buy, say, four books, of which 3 are
+different titles, you get a 10% discount on the 3 that
+form part of a set, but the fourth book still costs 8 EUR.
 
-1. 根据spec/paractice_*/的README.md完成对应的src/practice_*/的代码。要求测试通过，并符合题目要求。
-2. 能够理解代码的执行过程中都发生了什么，如果不能够理解，使用调试器进行单步调试来辅助理解。
+Your mission is to write a piece of code to calculate the
+price of any conceivable shopping basket (containing only
+Harry Potter books), giving as big a discount as possible.
 
-### 运行测试的办法
+For example, how much does this basket of books cost?
 
-    npm install
-    node_modules/mocha/bin/mocha spec/practice_1/*.js
+    2 copies of the first book
+    2 copies of the second book
+    2 copies of the third book
+    1 copy of the fourth book
+    1 copy of the fifth book
 
-## 学习材料(内容有重复)
+One way of group these 8 books is:
 
-- [Introduction to Object Oriented JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
+     1 group of 5 --> 25% discount (1st,2nd,3rd,4th,5th)
+    +1 group of 3 --> 10% discount (1st,2nd,3rd)
+This would give a total of
 
-- [Javascript 面向对象编程（一）：封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
-- [Javascript面向对象编程（二）：构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
-- [Javascript面向对象编程（三）：非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
+     5 books at a 25% discount
+    +3 books at a 10% discount
+Giving
 
-- [JavaScript Objects](http://www.w3schools.com/js/js_object_definition.asp)
+     5 x (8 - 2.00) == 5 x 6.00 == 30.00
+    +3 x (8 - 0.80) == 3 x 7.20 == 21.60
+For a total of 51.60
 
-- [CodeForDream Javascript 中级](http://www.codefordream.com/courses/js_intermediate/sections)
+However, a different way to group these 8 books is:
+
+     1 group of 4 books --> 20% discount  (1st,2nd,3rd,4th)
+    +1 group of 4 books --> 20% discount  (1st,2nd,3rd,5th)
+This would give a total of
+
+     4 books at a 20% discount
+    +4 books at a 20% discount
+Giving
+
+     4 x (8-1.60) == 4 x 6.40 == 25.60
+    +4 x (8-1.60) == 4 x 6.40 == 25.60
+For a total of 51.20
+
+And 51.20 is the price with the biggest discount.
