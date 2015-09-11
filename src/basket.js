@@ -43,10 +43,10 @@ function sumPriceWithDiscount(discounts, basketItems) {
 }
 
 function calculateMaxDiscounts(basketItems) {
-    var discounts = [0, 0, 0, 0, 0, 0];
+    var discounts = [0, 0, 0, 0, 0, 0];// index 0 is useless
     do {
         var discountLevel = getDiscountLevel(basketItems);
-        if(discountLevel == 3 && discounts[5]>0){
+        if(discountLevel == 3 && discounts[5] > 0){
             discounts[5]--;
             discounts[4]+=2;
         }else{
