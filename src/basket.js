@@ -45,15 +45,25 @@ function sumPriceWithDiscount(discounts, basketItems) {
 function calculateMaxDiscounts(basketItems) {
     var discounts = [0, 0, 0, 0, 0, 0];
     do {
-        var discountLevel = basketItems.reduce((result, item)=> {
-            if (item.count > 0) {
-                item.count--;
-                return result + 1;
-            }
-            return result;
-        }, 0);
-        discounts[discountLevel]++;
+        var discountLevel = getDiscountLevel(basketItems);
+        if(discountLevel == 3 && discounts[5]>0){
+            discounts[5]--;
+            discounts[4]+=2;
+        }else{
+            discounts[discountLevel]++;
+        }
     } while (discountLevel > 1)
     discounts.shift();
     return discounts;
+}
+
+function getDiscountLevel(basketItems) {
+    var discountLevel = basketItems.reduce((result, item)=> {
+        if (item.count > 0) {
+            item.count--;
+            return result + 1;
+        }
+        return result;
+    }, 0);
+    return discountLevel;
 }
