@@ -99,4 +99,20 @@ describe("Harry Potter", ()=>{
         var price = new Basket(books).getPriceAfterDiscount();
         expect(price).to.equal(16*(8*(1-0.20)));
     });
+
+    it("should choose 44 strategy instead of 53 strategy 3", () => {
+        var books = [new HarryPotter("1st", 4), new HarryPotter("2nd",4),
+            new HarryPotter("3rd", 4), new HarryPotter("4th", 3),
+            new HarryPotter("5th", 2)];
+        var price = new Basket(books).getPriceAfterDiscount();
+        expect(price).to.equal(12*(8*(1-0.20))+ 5*8*(1-0.25));
+    });
+
+    it("should choose 44 strategy instead of 53 strategy 4", () => {
+        var books = [new HarryPotter("1st", 12), new HarryPotter("2nd",12),
+            new HarryPotter("3rd", 12), new HarryPotter("4th", 6),
+            new HarryPotter("5th", 6)];
+        var price = new Basket(books).getPriceAfterDiscount();
+        expect(price).to.equal(48*(8*(1-0.20)));
+    });
 });
